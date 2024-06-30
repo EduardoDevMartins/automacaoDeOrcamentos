@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solução disponível</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="budget-container">
+            <h1>Solução recomendada</h1>
+            <p>{{ budget }}</p>
+            <form action="/confirm_budget" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="budget" value="{{ budget }}">
+                <h3>Essa solução resolve o seu problema ?</h3>
+                <input type="radio" id="sim" name="confirm" value="sim" checked>
+                <label for="sim">Sim</label>
+                <input type="radio" id="nao" name="confirm" value="nao">
+                <label for="nao">Não</label><br><br>
+                <textarea name="observations" placeholder="Informe mais detalhes sobre o problema..."></textarea><br><br>
+                <h3>Por favor anexe fotos do problema</h3>
+                <input type="file" name="photo" accept="image/*"><br><br>
+                {# <h3>Qual seu telefone com DDD ?</h3> #}
+                {# <input type="tel" id="telefone" name="telefone" placeholder="48999182012" pattern="[0-9]{11}" required><br><br>#}
+                <input type="submit" value="Enviar">
+            </form>
+            
+        </div>
+    </div>
+</body>
+</html>

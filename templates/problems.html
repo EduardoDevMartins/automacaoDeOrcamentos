@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Escolha o Problema</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Escolha o Problema</h1>
+        {% if problems %}
+        <form action="/budget" method="post">
+            <select name="problem">
+                {% for problem in problems %}
+                <option value="{{ problem }}">{{ problem }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <input type="submit" value="Escolher">
+        </form>
+        {% else %}
+        <p>Nenhum problema disponível para este ambiente.</p>
+        <p><a href="/">Voltar</a></p>
+        {% endif %}
+    </div>
+</body>
+</html>

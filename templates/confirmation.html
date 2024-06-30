@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmação de Orçamento</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="budget-container">
+            <h1>Resumo do Orçamento</h1>
+            <p><strong>Orçamento:</strong> {{ budget }}</p>
+            <p><strong>Confirmado:</strong> {{ confirm }}</p>
+            <p><strong>Observações:</strong> {{ observations }}</p>
+            {% if photo_filename %}
+            <p><strong>Foto Anexada:</strong></p>
+            <img src="{{ url_for('uploaded_file', filename=photo_filename) }}" alt="Foto Anexada" style="max-width: 100%;"><br><br>
+            {% endif %}
+            <p><a href="/">Voltar ao Início</a></p>
+        </div>
+    </div>
+</body>
+</html>

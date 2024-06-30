@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Escolha o Ambiente</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Escolha o Ambiente</h1>
+        <form action="/problems" method="post">
+            <select name="environment">
+                {% for environment in environments %}
+                <option value="{{ environment }}">{{ environment }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <input type="submit" value="Escolher">
+        </form>
+    </div>
+</body>
+</html>
